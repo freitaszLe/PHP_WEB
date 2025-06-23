@@ -1,5 +1,6 @@
 @extends('heranca.layout')
 
+@section('titulo-pagina', 'Pagina Inicial')
 @section('conteudo-principal')
 <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">

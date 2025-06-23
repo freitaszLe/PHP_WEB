@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>@yield('titulo-pagina')</title>
+        <title>Freelancer - Start Bootstrap Theme</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -20,70 +20,84 @@
         <!-- Navigation-->
               <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="{{route('site.heranca.home')}}">Start Bootstrap</a>
+                <a class="navbar-brand" href="{{route('site.componente.home')}}">Start Bootstrap</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    @php
+                     @php
                         $itensMenu = [
                             [   
                                 'descricao' => 'Portfolio', 
-                                'link' => 'portfolio'
+                                'link' => route('site.componente.portfolio')
                             ],
                             [
                                 'descricao' => 'Sobre', 
-                                'link' => 'sobre '
+                                'link' => route('site.componente.sobre')
                             ],
                             [   
                                 'descricao' => 'Contato', 
-                                'link' => 'contato'
+                                'link' => route('site.componente.contato')
                             ]
                         ];
                     @endphp
-
-                    <ul class="navbar-nav ms-auto">
-                        @each('parciais._itens_menu', $itensMenu, 'item')
-                    </ul>
+                    <ul class="navbar-nav ml-auto">@each('parciais._itens_menu', $itensMenu, 'item')</ul>
                 </div>
             </div>
         </nav>
-        <div class="mt-5"> </div>
-        @yield('conteudo-principal')
-       
-        <!-- Footer-->
+
+        <div class="mt-5"></div>
+        {{ $slot }}
+
+        <!-- footer-->
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
                     <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
+                    <x-secao-rodape>
+                        <x-slot name="titulo">
+                            <h4 class="text-uppercase mb-4">Localização</h4>
+                        </x-slot>
                         <p class="lead mb-0">
                             2215 John Daniel Drive
                             <br />
                             Clark, MO 65243
                         </p>
-                    </div>
+                    </x-secao-rodape>
                     <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
+                      <x-secao-rodape>
+                        <x-slot name="titulo">
+                            <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        </x-slot>
+                       <x-item-social link="https://www.facebook.com/StartBootstrap">
+                            <i class="fab fa-fw fa-facebook-f"></i>
+                        </x-item-social>
+
+                        <x-item-social link="https://twitter.com/StartBootstrap">
+                            <i class="fab fa-fw fa-twitter"></i>
+                        </x-item-social>
+
+                        <x-item-social link="https://www.linkedin.com/company/startbootstrap">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </x-item-social>
+
+                        <x-item-social link="https://dribbble.com/StartBootstrap">
+                            <i class="fab fa-fw fa-dribbble"></i>
+                        </x-item-social>
+                    </x-secao-rodape>
+                   
                     <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                        @section('conteudo-rodape')
+                     <x-secao-rodape>
+                        <x-slot name="titulo">
+                            <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        </x-slot>
                         <p class="lead mb-0">
                             Freelance is a free to use, MIT licensed Bootstrap theme created by
                             <a href="http://startbootstrap.com">Start Bootstrap</a>
                             .
                         </p>
-                        @show
-                    </div>
+                    </x-secao-rodape>
                 </div>
             </div>
         </footer>
@@ -293,5 +307,7 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
     </body>
-</html>
+</html>        
+

@@ -1,8 +1,7 @@
-@extends('heranca.layout')
-
-@section('titulo-pagina', 'Pagina-Contato')
-
-@section('conteudo-principal')
+<x-layout>
+<x-slot name="titulo-pagina">
+    Contato
+</x-slot>
 
 <!-- Contact Section-->
         <section class="page-section" id="contact">
@@ -76,4 +75,5 @@
             </div>
         </section>
 
-@endsection
+
+</x-layout>

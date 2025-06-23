@@ -1,5 +1,7 @@
 @extends('heranca.layout')
 
+@section('titulo-pagina', 'Pagina-Sobre')
+
 @section('conteudo-principal')
 
 <!-- About Section-->
@@ -28,4 +30,11 @@
             </div>
         </section>
 
+@endsection
+
+@section('conteudo-rodape')
+        <p class="lead mb-0">
+            Obrigado por acessar meu site
+            .
+        </p>
 @endsection
